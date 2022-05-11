@@ -5,9 +5,9 @@ To use this script simply call the HDL_waifu2x.sh passing the absolute path of t
 
 This script is still very early and recommendations for new features are always appreciated!
 
-##License
+## License
 
-Copyright 2021 Chase Cobb
+Copyright 2022 Chase Cobb
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
