@@ -132,9 +132,15 @@ do
     local frameRateFraction=$(ffprobe -v error -select_streams v -of default=noprint_wrappers=1:nokey=1 -show_entries stream=r_frame_rate $value)
     local frameRateTruncated=$(echo "scale=3; $frameRateFraction" | bc)
     local inputResolutionWidth=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=s=x:p=0 $inputFile)
-    inputResolutionWidth=${inputResolutionWidth: : -1}
+    if [[ "$inputResolutionWidth" == *x ]]
+    then
+     inputResolutionWidth=${inputResolutionWidth: : -1}
+    fi
     local inputResolutionHeight=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=s=x:p=0 $inputFile)
-    inputResolutionHeight=${inputResolutionHeight: : -1}
+    if [[ "$inputResolutionHeight" == *x ]]
+    then
+      inputResolutionHeight=${inputResolutionHeight: : -1}
+    fi
 
     #Make sure output is scaled according to the upscaler arguments
     GetUpscaleResolutionScalar
